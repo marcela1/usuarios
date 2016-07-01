@@ -16,7 +16,7 @@
 			<td>Edad</td>
 		</tr>
 	
-		@foreach(@usuarios as $u)
+		@foreach($usuarios as $u)
 		<tr>
 			<td>{{$u->nombre}}</td>
 			<td>{{$u->edad}}</td>

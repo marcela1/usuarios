@@ -91,8 +91,8 @@ class ejemploController extends Controller
 		$lista=DB::table('usuarios_proyectos')->where('id_proyecto', '=', $id)->lists('id_usuario');
 		$usuarios=DB::table('usuarios')->whereIn('id',$lista)->orderBy('id','asc')->get();
 		$proyectos=Proyecto::find($id);
-		dd($usuarios);
-		dd($proyectos);
+		
+	
 		$vista=view('pdfProyectos', compact('usuarios','proyectos'));
 		$dompdf=\App::make('dompdf.wrapper');
 		$dompdf->loadHTML($vista);
