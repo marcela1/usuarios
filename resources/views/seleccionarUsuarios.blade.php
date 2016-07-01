@@ -16,7 +16,8 @@
 		</div>
 		<dir class="row">
 			<div class="col-xs-12 well">
-				<form action="">
+				<form action="{{ url('/seleccionarUsuarios')}}" method="POST">
+					<input type="hidden" name="_token" value="{{csrf_token() }}">
 					<div class="form-group">
 						<label for="">Proyectos</label>
 						<select class="form-control"name="proyectos" id="">
@@ -25,7 +26,11 @@
 							@endforeach
 						</select>
 						<input class="btn btn-primary"type="submit" value="Mostrar">
+					
 					</div>
+				</form>
+				<form action="{{ url('/actualizarUsuariosProyectos')}}/{{$id}}" method="POST">
+					<input type="hidden" name="_token" value="{{csrf_token() }}">
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -43,11 +48,20 @@
 								<td>{{$u->nombre}}</td>
 								<td>{{$u->edad}}</td>
 								<td>{{$u->correo}}</td>
-								<td><input type="checkbox"name="seleccionado" value="{{$u->id}}"></td>
+								<td><input type="checkbox"name="seleccionado[]" value="{{$u->id}}" ></td>
+
 							</tr>
+
 							@endforeach
+							<tr class="text-right">
+								<td colspan="5">
+								<input type="submit" value="Agregar" class="btn btn-success">
+								</td>
+							</tr>
 						</tbody>
+
 					</table>
+					
 				</form>
 			</div>
 		</dir>

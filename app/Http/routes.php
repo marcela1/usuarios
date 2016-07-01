@@ -26,3 +26,5 @@ Route::get('/home/{nombre}/{edad}','ejemploController@index');
 Route::get('/usuarios', 'ejemploController@mostrarUsuarios');
 Route::get('/asignarUsuarios', 'ejemploController@asignarUsuarios');
 Route::post('/seleccionarUsuarios','ejemploController@seleccionarUsuarios');
+Route::post('/actualizarUsuariosProyectos/{id}','ejemploController@actualizarUsuariosProyectos');
+Route::get('/pdfProyectos/{id}','ejemploController@pdfProyectos');

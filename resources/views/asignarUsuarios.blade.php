@@ -31,6 +31,31 @@
 					
 				</form>
 			</div>
+			<div class="col-xs-12 ">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Descripcion</th>
+							<th>PDF</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($proyectos as $p)
+							<tr>
+								<td>{{$p->id}}</td>
+								<td>{{$p->descripcion}}</td>
+								<td><a href="{{ url('/pdfProyectos')}}/{{$p->id}}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></td>
+							
+								
+
+							</tr>
+
+							@endforeach
+						
+					</tbody>
+				</table>
+			</div>
 		</dir>
 	</div>
 </body>

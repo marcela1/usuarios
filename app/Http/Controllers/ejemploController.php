@@ -10,6 +10,7 @@ use App\Usuario;
 
 use App\Proyecto;
 use DB;
+use App\usuarios_proyectos;
 
 class ejemploController extends Controller
 {
@@ -71,7 +72,30 @@ class ejemploController extends Controller
 		$lista=DB::table('usuarios_proyectos')->where('id_proyecto', '=', $id)->lists('id_usuario');
 		$usuarios=DB::table('usuarios')->whereNotIn('id',$lista)->orderBy('id','asc')->get();
 		//dd($usuarios);
-		return view('seleccionarUsuarios', compact('proyectos','usuarios'));
+		return view('seleccionarUsuarios', compact('proyectos','usuarios','id'));
 		
+	}
+	public function actualizarUsuariosProyectos(Request $request, $id){
+		$usuarios=$request->input('seleccionado');
+		foreach ($usuarios as $u) {
+			//print($u);
+			$registro=new usuarios_proyectos();
+			$registro->id_usuario=$u;
+			$registro->id_proyecto=$id;
+			$registro->save();
+			
+		}
+		return Redirect('/asignarUsuarios');
+	}
+	public function pdfProyectos($id){
+		$lista=DB::table('usuarios_proyectos')->where('id_proyecto', '=', $id)->lists('id_usuario');
+		$usuarios=DB::table('usuarios')->whereIn('id',$lista)->orderBy('id','asc')->get();
+		$proyectos=Proyecto::find($id);
+		dd($usuarios);
+		dd($proyectos);
+		$vista=view('pdfProyectos', compact('usuarios','proyectos'));
+		$dompdf=\App::make('dompdf.wrapper');
+		$dompdf->loadHTML($vista);
+		return $dompdf->stream();
 	}
 }
