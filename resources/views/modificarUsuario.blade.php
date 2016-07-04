@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Modificar Usuario</title>
-	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-</head>
-<body>
+@extends('master')
+@section('encabezado')
+<h1>Modificar Usuario</h1>
+@stop
+@section('contenido')
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 well">
-				<h1>Modificar Usuario</h1>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-xs-12">
 				<form action="{{url('/actualizarUsuario')}}/{{$usuario->id}}" method="POST">
@@ -40,5 +33,4 @@
 		</div>
 	</div>
 	
-</body>
-</html>
+@stop

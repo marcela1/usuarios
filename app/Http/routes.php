@@ -55,7 +55,7 @@ Route::post('/seleccionarRequisitos','ejemploController@seleccionarRequisitos');
 Route::post('/actualizarUsuariosRequisitos/{id}','ejemploController@actualizarUsuariosRequisitos');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('principal');
 });
 
 Route::get('/home/{nombre}/{edad}','ejemploController@index');

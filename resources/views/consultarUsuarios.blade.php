@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Consulta de Usuarios</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
+@extends('master')
+@section('encabezado')
+<h1>Gestion de usuarios</h1>
+@stop
+@section('contenido')
+<a href="{{url('/registrarUsuario')}}" class="btn btn-success">Nuevo Usuario</a>
+<span class="glyphicon glyphicon-pluss" aria-hidden="true"></span>
 
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 well">
-				<h1>Lista de Usuarios</h1>
-				<a href="{{url('registrarUsuario')}}" class="btn btn-success">Nuevo usuario
-				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-				</a>
-			</div>
-		</div>
-		<dir class="row">
-			<div class="col-xs-12">
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -51,8 +39,4 @@
 						@endforeach
 					</tbody>
 				</table>
-			</div>
-		</dir>
-	</div>
-</body>
-</html>
+@stop
