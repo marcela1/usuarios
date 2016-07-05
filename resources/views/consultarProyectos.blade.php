@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Consulta de Proyectos</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
-
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 well">
-				<h1>Lista de Proyectos</h1>
+@extends('master')
+@section('encabezado')
+<h1>Lista de Proyectos</h1>
+@stop
+@section('contenido')
 				<a href="{{url('registrarProyecto')}}" class="btn btn-success">Nuevo Proyecto
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 				</a>
@@ -51,6 +43,4 @@
 				</table>
 			</div>
 		</dir>
-	</div>
-</body>
-</html>
+@stop

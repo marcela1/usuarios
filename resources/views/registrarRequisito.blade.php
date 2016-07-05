@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Registro de Nuevo Requisito</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 well">
-				<h1>Registro de Requisitos</h1>
-			</div>
-		</div>
+@extends('master')
+@section('encabezado')
+<h1>Registrar Nuevo Requisito</h1>
+@stop
+@section('contenido')
 		<div class="row">
 			<div class="col-xs-12">
 				<form action="{{url('/guardarRequisito')}}" method="POST">
@@ -33,12 +24,10 @@
 						<input type="text" class="form-control" name="horas">
 
 					</div>
+					
 					<input type="submit" class="btn btn-primary">
 					<a href="{{url('/requisitos')}}" class="btn btn-danger"> Cancelar</a>
 				</form>
 			</div>
 		</div>
-	</div>
-	
-</body>
-</html>
+@stop

@@ -33,7 +33,8 @@
             <li><a href="{{url('/clientes')}}">Clientes</a></li>
             <li><a href="{{url('/proyectos')}}">Proyectos</a></li>
             <li><a href="{{url('/requisitos')}}">Requisitos</a></li>
-            <li><a href="{{url('/asignarRequisitos')}}">Asignar Requisitos</a></li>
+            <li><a href="{{url('/asignarRequisitos')}}">Asignar Usuarios Requisitos</a></li>
+              <li><a href="{{url('/asignarProyectosRequisitos')}}">Asignar Proyectos Requisitos</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>

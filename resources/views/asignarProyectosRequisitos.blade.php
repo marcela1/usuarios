@@ -1,11 +1,11 @@
 @extends('master')
 @section('encabezado')
-<h1>Asignar Usuarios a Proyecto</h1>
+<h1>Asignar Requisitos a Proyectos</h1>
 @stop
 @section('contenido')
 		
 			
-				<form action="{{ url('/seleccionarUsuarios')}}" method="POST">
+				<form action="{{ url('/seleccionarProyectosRequisitos')}}" method="POST">
 					<input type="hidden" name="_token" value="{{csrf_token() }}">
 					
 					<div class="form-group">
@@ -34,7 +34,7 @@
 							<tr>
 								<td>{{$p->id}}</td>
 								<td>{{$p->descripcion}}</td>
-								<td><a href="{{ url('/pdfProyectos')}}/{{$p->id}}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></td>
+								<td><a href="{{ url('/pdfProyectosRequisitos')}}/{{$p->id}}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></td>
 							
 								
 

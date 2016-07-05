@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Modificar Proyecto</title>
-	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 well">
-				<h1>Modificar Proyecto</h1>
-			</div>
-		</div>
+@extends('master')
+@section('encabezado')
+<h1>Modificar Proyecto</h1>
+@stop
+@section('contenido')
 		<div class="row">
 			<div class="col-xs-12">
 				<form action="{{url('/actualizarProyecto')}}/{{$proyectos->id}}" method="POST">
@@ -32,7 +23,4 @@
 				</form>
 			</div>
 		</div>
-	</div>
-	
-</body>
-</html>
+@stop

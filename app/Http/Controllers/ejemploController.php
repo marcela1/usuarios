@@ -14,6 +14,7 @@ use App\usuarios_proyectos;
 use App\Cliente;
 use App\Requisito;
 use App\Usuarios_Requisitos;
+use App\Proyecto_Requisito;
 class ejemploController extends Controller
 {
 
@@ -275,6 +276,19 @@ class ejemploController extends Controller
 		return $dompdf->stream();
 	}
 
+	public function pdfProyectosRequisitos($id){
+		$lista=DB::table('proyectos_requisitos')->where('id_proyecto', '=', $id)->lists('id_requisito');
+		$proyectos=DB::table('requisitos')->whereIn('id',$lista)->orderBy('id','asc')->get();
+		$proyectos=Proyecto::find($id);
+		$requisitos=Requisito::all();
+	
+		$vista=view('pdfProyectosRequisitos', compact('proyectos','requisitos'));
+		$dompdf=\App::make('dompdf.wrapper');
+		$dompdf->loadHTML($vista);
+		return $dompdf->stream();
+	}
+
+
 	public function asignarRequisitos(){
 
 		$usuarios=Usuario::all();
@@ -302,6 +316,35 @@ class ejemploController extends Controller
 			
 		}
 		return Redirect('/asignarRequisitos');
+	}
+
+
+	public function asignarProyectosRequisitos(){
+
+		$proyectos=Proyecto::all();
+		return view('asignarProyectosRequisitos', compact('proyectos'));
+	}
+	public function seleccionarProyectosRequisitos(Request $request){
+		$proyectos=Proyecto::all();
+		$id=$request->input('proyectos');
+		//dd($id);
+		$lista=DB::table('proyectos_requisitos')->where('id_proyecto', '=', $id)->lists('id_requisito');
+		$requisitos=DB::table('requisitos')->whereNotIn('id',$lista)->orderBy('id','asc')->get();
+		//dd($usuarios);
+		return view('seleccionarProyectosRequisitos', compact('proyectos','requisitos','id'));
+		
+	}
+	public function actualizarProyectosRequisitos(Request $request, $id){
+		$requisitos=$request->input('seleccionado');
+		foreach ($requisitos as $r) {
+			//print($u);
+			$registro=new Proyecto_Requisito();
+			$registro->id_proyecto=$id;
+			$registro->id_requisito=$r;
+			$registro->save();
+			
+		}
+		return Redirect('/asignarProyectosRequisitos');
 	}
 
 }

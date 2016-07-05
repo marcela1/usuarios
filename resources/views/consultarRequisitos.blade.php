@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Consulta de Requisitos</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
-
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 well">
-				<h1>Lista de Requisitos</h1>
+@extends('master')
+@section('encabezado')
+<h1>Lista de Requisitos</h1>
+@stop
+@section('contenido')
+				
 				<a href="{{url('registrarRequisito')}}" class="btn btn-success">Nuevo Requisito
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 				</a>
@@ -37,6 +30,7 @@
 							<td>{{$r->descripcion}}</td>
 							<td>{{$r->prioridad}}</td>
 							<td>{{$r->horas}}</td>
+
 							
 							<td>
 								<a class="btn btn-danger btn-xs" href="{{url('eliminarRequisito')}}/{{$r->id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Eliminar</a>
@@ -53,6 +47,4 @@
 				</table>
 			</div>
 		</dir>
-	</div>
-</body>
-</html>
+@stop

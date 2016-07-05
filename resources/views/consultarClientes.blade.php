@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Consulta de Clientes</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
-
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 well">
-				<h1>Lista de Clientes</h1>
+@extends('master')
+@section('encabezado')
+<h1>Gestion de Clientes</h1>
+@stop
+@section('contenido')
+	
 				<a href="{{url('registrarCliente')}}" class="btn btn-success">Nuevo Cliente
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 				</a>
-			</div>
-		</div>
+			
+		
 		<dir class="row">
 			<div class="col-xs-12">
 				<table class="table table-hover">
@@ -54,6 +47,4 @@
 				</table>
 			</div>
 		</dir>
-	</div>
-</body>
-</html>
+@stop

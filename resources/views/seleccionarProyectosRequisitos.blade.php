@@ -1,24 +1,24 @@
 @extends('master')
 @section('encabezado')
-<h1>Asignar Requisito a Usuario</h1>
+<h1>Asignar Requisitos a Proyectos</h1>
 @stop
 @section('contenido')
-		
-				<form action="{{ url('/seleccionarRequisitos')}}" method="POST">
+	
+			
+				<form action="{{ url('/seleccionarProyectosRequisitos')}}" method="POST">
 					<input type="hidden" name="_token" value="{{csrf_token() }}">
-				
 					<div class="form-group">
-						<label for="">Usuarios</label>
-						<select class="form-control"name="usuarios" id="">
-							@foreach($usuarios as $u)
-							<option value="{{$u->id}}">{{$u->nombre}}</option>
+						<label for="">Proyectos</label>
+						<select class="form-control"name="proyectos" id="">
+							@foreach($proyectos as $p)
+							<option value="{{$p->id}}">{{$p->descripcion}}</option>
 							@endforeach
 						</select>
 						<input class="btn btn-primary" type="submit" value="Mostrar">
 					
 					</div>
 				</form>
-				<form action="{{ url('/actualizarUsuariosRequisitos')}}/{{$id}}" method="POST">
+				<form action="{{ url('/actualizarProyectosRequisitos')}}/{{$id}}" method="POST">
 					<input type="hidden" name="_token" value="{{csrf_token() }}">
 					<table class="table table-hover">
 						<thead>
@@ -45,7 +45,7 @@
 							<tr class="text-right">
 								<td colspan="5">
 								<input type="submit" value="Agregar" class="btn btn-success">
-								<a href="{{url('/asignarRequisitos')}}" class="btn btn-danger"> Cancelar</a>
+								<a href="{{url('/asignarProyectosRequisitos')}}" class="btn btn-danger"> Cancelar</a>
 
 								</td>
 							</tr>
@@ -53,7 +53,6 @@
 
 					</table>
 					
-				</form>
-			</div>
-		</dir>
+			
+		
 @stop

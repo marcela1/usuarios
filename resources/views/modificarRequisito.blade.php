@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Modificar Requisito</title>
-	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 well">
-				<h1>Modificar Requisito</h1>
-			</div>
-		</div>
+@extends('master')
+@section('encabezado')
+<h1>Modificar Requisito</h1>
+@stop
+@section('contenido')
 		<div class="row">
 			<div class="col-xs-12">
 				<form action="{{url('/actualizarRequisito')}}/{{$requisitos->id}}" method="POST">
@@ -32,12 +23,10 @@
 						<input value="{{$requisitos->horas}}" type="text" class="form-control" name="horas">
 
 					</div>
+						
 					<input type="submit" class="btn btn-primary">
 					<a href="{{url('/requisitos')}}" class="btn btn-danger"> Cancelar</a>
 				</form>
 			</div>
 		</div>
-	</div>
-	
-</body>
-</html>
+@stop

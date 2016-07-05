@@ -50,9 +50,13 @@ Route::get('/pdfProyectos/{id}','ejemploController@pdfProyectos');
 
 Route::get('/asignarRequisitos', 'ejemploController@asignarRequisitos');
 Route::post('/seleccionarRequisitos','ejemploController@seleccionarRequisitos');
-
-
 Route::post('/actualizarUsuariosRequisitos/{id}','ejemploController@actualizarUsuariosRequisitos');
+
+Route::get('/asignarProyectosRequisitos', 'ejemploController@asignarProyectosRequisitos');
+Route::post('/seleccionarProyectosRequisitos','ejemploController@seleccionarProyectosRequisitos');
+Route::post('/actualizarProyectosRequisitos/{id}','ejemploController@actualizarProyectosRequisitos');
+Route::get('/pdfProyectosRequisitos/{id}','ejemploController@pdfProyectosRequisitos');
+
 
 Route::get('/', function () {
     return view('principal');
