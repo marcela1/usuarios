@@ -26,7 +26,7 @@
 						<tr>
 							<td>{{$p->id}}</td>
 							<td>{{$p->descripcion}}</td>
-							<td>{{$p->id_cliente}}</td>
+							<td>{{$p->nombre}}</td>
 							
 							<td>
 								<a class="btn btn-danger btn-xs" href="{{url('eliminarProyecto')}}/{{$p->id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Eliminar</a>

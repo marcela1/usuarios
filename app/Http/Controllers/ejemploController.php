@@ -110,7 +110,11 @@ class ejemploController extends Controller
 
 
 	public function mostrarProyectos(){
-		$proyectos=Proyecto::all();
+		$proyectos=DB::table('proyectos')
+		->join('clientes' , 'proyectos.id_cliente' , '=' , 'clientes.id')
+		->select('proyectos.id','proyectos.descripcion', 'clientes.nombre')
+		->orderBy('id', 'asc')
+		->get();
 		//traer la informacion de la tabla
 		//dd($usuarios);
 		return view('consultarProyectos', compact('proyectos'));
@@ -346,5 +350,7 @@ class ejemploController extends Controller
 		}
 		return Redirect('/asignarProyectosRequisitos');
 	}
+
+
 
 }
