@@ -77,10 +77,14 @@
 		</div>
 		
 	</div>
+  <script src="js/jquery-2.0.0.min.js"></script>        
+  <script src="js/bootstrap.js"></script>
+   
 </div>
 
 	
-	<script src"{{ asset("js/bootstrap.js") }}"></script>
-
+	
 </body>
+
+
 </html>
